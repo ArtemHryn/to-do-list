@@ -2,11 +2,10 @@ export function addToDOM(markup, element) {
   element.insertAdjacentHTML("beforeend", markup);
 }
 
-export function getParentElement(getTaskFromLocalStorage, element) {
+export function getParentElement(element) {
   const task = element.closest("[data-id]");
   const id = Number(task.dataset.id);
-  const tasks = JSON.parse(getTaskFromLocalStorage());
-  return { task, tasks, id };
+  return {task , id};
 }
 
 export function filterTasks(tasks, id) {
