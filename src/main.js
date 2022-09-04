@@ -15,10 +15,11 @@ import {
   filterTasks,
   rewriteLocalStorage,
 } from "./helpers";
-
+import { singIn, signOutUser } from "./services/auth";
 refs.form.addEventListener("submit", onAddTask);
 refs.list.addEventListener("click", onTaskChange);
-
+refs.button.addEventListener('click',onBtnSingIn)
+refs.button2.addEventListener("click", onBtnSingOut);
 startTasks();
 
 function onAddTask(e) {
@@ -53,4 +54,12 @@ async function onTaskChange(e) {
     data.isChecked = task.classList.toggle("checked");
     addToFirebaseStorage(data);
   }
+}
+
+
+function onBtnSingIn(e) {
+  singIn()
+}
+function onBtnSingOut(pe) {
+signOutUser()
 }
